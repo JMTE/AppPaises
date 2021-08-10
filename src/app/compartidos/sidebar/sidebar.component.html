@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<h2>
+    Busquedas
+  </h2>
+  <hr>
+  <ul class="list-group">
+    <!-- Routerlink lo utilizamos para dirigirnos a la pagina correspondiente, se podria utilizar un ancla 
+    como siempre haciamos en html, pero eso hace que cada vez que pinchemos en ella, recargue la pagina, 
+    con routerlink esto no sucede por eso nos aprovechamos de esta herramienta de angular -->
+    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+    class="list-group-item ">
+    <!-- Tenemos que colocar el routerlinkactiveoptions debido a que el path por pais esta vacio -->
+      Buscar País
+    </li>
+    <li routerLink="continente" routerLinkActive="active" 
+    class="list-group-item">
+      Buscar por Continente
+    </li>
+    <li routerLink="capital" routerLinkActive="active"
+    class="list-group-item">
+      Buscar por Capital
+    </li>
+  </ul>

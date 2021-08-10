@@ -1,6 +1,6 @@
 
 import { NgModule } from "@angular/core";
-import { RouterModule, RouterState, Routes } from "@angular/router";
+import { RouterModule,  Routes } from "@angular/router";
 import { PorCapitalComponent } from "./pais/paginas/por-capital/por-capital.component";
 import { PorContinenteComponent } from "./pais/paginas/por-continente/por-continente.component";
 import { PorPaisComponent } from './pais/paginas/por-pais/por-pais.component';
