@@ -6,6 +6,7 @@ import { PorCapitalComponent } from './paginas/por-capital/por-capital.component
 import { PorPaisComponent } from './paginas/por-pais/por-pais.component';
 import { PorContinenteComponent } from './paginas/por-continente/por-continente.component';
 import { VerPAisComponent } from './paginas/ver-pais/ver-pais.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,7 @@ import { VerPAisComponent } from './paginas/ver-pais/ver-pais.component';
     VerPAisComponent
   ],
   imports: [
-    CommonModule, FormsModule
+    CommonModule, FormsModule, RouterModule
   ],
   exports:[
     PorCapitalComponent,

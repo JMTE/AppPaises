@@ -30,7 +30,7 @@ class="alert alert-danger">
 </div>
 
 
-<div class="row">
+<div *ngIf="paises.length>0" class="row">
     <div class="col">
 
         <table class="table table-hover">
@@ -52,15 +52,17 @@ class="alert alert-danger">
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let pais of paises ;let indice=index">
                     <td>
-                        1
+                        {{indice+1}}
                     </td>
-                    <td>bandera</td>
-                    <td>nombre</td>
-                    <td>12343434</td>
                     <td>
-                        <a href="ljlljljl"></a>
+                        <img  class="small-flag" src="{{pais.flag}}" alt="">
+                    </td>
+                    <td>{{pais.name}}</td>
+                    <td>{{pais.population | number}}</td>
+                    <td>
+                        <a [routerLink]="['/pais' , pais.alpha2Code]" >Ver...</a>
                     </td>
                 </tr>
             </tbody>
