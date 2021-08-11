@@ -11,16 +11,24 @@ export class PorPaisComponent  {
 
   terminoBusqueda:string=""
 
+  hayError:boolean=false;
+
   //Inyectamos nuestro servicio
   constructor(private PaisService:PaisService) { }
 
   buscar(){
+    this.hayError=false;
 
     console.log(this.terminoBusqueda);
 
-    this.PaisService.buscarPais(this.terminoBusqueda).subscribe( respuesta=>{
+    this.PaisService.buscarPais(this.terminoBusqueda).subscribe( (respuesta)=>{
 
-      console.log(respuesta);
+      console.log(respuesta);},(error)=>{
+
+        this.hayError=true;
+       
+        
+        
       
     })
 

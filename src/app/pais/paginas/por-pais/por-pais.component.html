@@ -20,9 +20,12 @@
 
 <hr>
 
-<div class="alert alert-danger">
+<div 
 
-    No se encontro nada con el término introducido
+*ngIf="hayError"
+class="alert alert-danger">
+
+    No se encontro nada con el término {{terminoBusqueda}}
 
 </div>
 
