@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { PaisService } from '../../servicios/pais.service';
+import { Language } from '../../interfaces/pais.interfaces';
 
 @Component({
   selector: 'app-por-pais',
@@ -21,8 +22,11 @@ export class PorPaisComponent  {
 
     console.log(this.terminoBusqueda);
 
+    
+
     this.PaisService.buscarPais(this.terminoBusqueda).subscribe( (respuesta)=>{
 
+      
       console.log(respuesta);},(error)=>{
 
         this.hayError=true;
