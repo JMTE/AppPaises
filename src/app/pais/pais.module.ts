@@ -7,6 +7,8 @@ import { PorPaisComponent } from './paginas/por-pais/por-pais.component';
 import { PorContinenteComponent } from './paginas/por-continente/por-continente.component';
 import { VerPAisComponent } from './paginas/ver-pais/ver-pais.component';
 import { RouterModule } from '@angular/router';
+import { PaisTablaComponent } from './componentes/pais-tabla/pais-tabla.component';
+import { PaisInputComponent } from './componentes/pais-input/pais-input.component';
 
 
 
@@ -16,7 +18,9 @@ import { RouterModule } from '@angular/router';
     PorCapitalComponent,
     PorPaisComponent,
     PorContinenteComponent,
-    VerPAisComponent
+    VerPAisComponent,
+    PaisTablaComponent,
+    PaisInputComponent
   ],
   imports: [
     CommonModule, FormsModule, RouterModule
