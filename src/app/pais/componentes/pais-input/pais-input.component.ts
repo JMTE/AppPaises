@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
+
 
 @Component({
   selector: 'app-pais-input',
@@ -7,14 +8,13 @@ import { Component} from '@angular/core';
 export class PaisInputComponent {
 
   constructor() { }
-
-
+  //vamos a crear el evento para que funcionen el buscar, el evento que vamos a crear es de tipo string (termino)
+  @Output() onEnter: EventEmitter<string>= new EventEmitter();
   terminoBusqueda:string="";
 
   buscar(){
 
-    console.log("hola mundos");
-    
+    this.onEnter.emit(this.terminoBusqueda);
   }
   
 

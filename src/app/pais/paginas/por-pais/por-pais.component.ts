@@ -19,10 +19,10 @@ export class PorPaisComponent  {
   //Inyectamos nuestro servicio
   constructor(private PaisService:PaisService) { }
 
-  buscar(){
+  buscar(termino:string){
     this.hayError=false;
-
-    console.log(this.terminoBusqueda);
+    this.terminoBusqueda=termino;
+    
 
     
 
