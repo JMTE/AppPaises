@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Output, OnInit} from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Input} from '@angular/core';
 
 import { Subject } from 'rxjs';
+import { CapitalService } from '../../servicios/capital.service';
 
 import{debounceTime} from "rxjs/operators"
+
+import { PaisService } from '../../servicios/pais.service';
 
 
 @Component({
@@ -20,12 +23,15 @@ export class PaisInputComponent implements OnInit{
 
   @Output() onDebounce: EventEmitter<string>=new EventEmitter(); //se va a emitir cuando la persona deja de escribir
 
+
+  @Input() placeholder:string="";
   
   debouncer:Subject<string>=new Subject() //vamos a hacer un observable
   
   
   terminoBusqueda:string="";
 
+ 
 
   ngOnInit() {
     //nos subscribimos al debouncer
@@ -51,6 +57,8 @@ export class PaisInputComponent implements OnInit{
 
     this.debouncer.next(this.terminoBusqueda);
   }
+
+
   
 
 }
