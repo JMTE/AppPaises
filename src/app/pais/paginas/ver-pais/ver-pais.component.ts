@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap , tap} from 'rxjs/operators';
 import { PaisService } from '../../servicios/pais.service';
+import { Country } from '../../interfaces/pais.interfaces';
 
 @Component({
   selector: 'app-ver-pais',
@@ -10,6 +11,10 @@ import { PaisService } from '../../servicios/pais.service';
   ]
 })
 export class VerPAisComponent implements OnInit {
+
+
+  pais!:Country;
+
 
   //1- ActivatedRoute viene con todo lo necesario para poder suscribirnos a cambios del url
   constructor(private activatedRoute:ActivatedRoute, private PaisService:PaisService) { }
@@ -39,15 +44,20 @@ export class VerPAisComponent implements OnInit {
 
     //A CONTINUACION VAMOS A HACER LO MISMO PERO TRABAJANDO CON RXJS Y SWITCHMAP
 
+
+    
     this.activatedRoute.params
     .pipe(
       //El switchmap nos permite recibir un observable y devolver otro observable
-      switchMap((param)=>this.PaisService.getPaisCodigo(param.id))
-    )
-    
-    .subscribe(respuesta=>{
+      switchMap((param)=>this.PaisService.getPaisCodigo(param.id)),
 
-      console.log(respuesta);
+      tap(console.log) //Esta otra funcion nos dice que cuando pase por aqui haga un log de consola
+      )
+    
+    
+    .subscribe(pais=>{
+
+     this.pais=pais;
       
 
     })
