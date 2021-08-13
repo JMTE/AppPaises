@@ -37,11 +37,52 @@ class="alert alert-info">
                     <strong>Población: </strong> {{pais.population | number}}
 
                 </li>
+                <li class="list-group-item">
+
+                    <strong>Código numérico: </strong> {{pais.numericCode| number}}
+
+                </li>
+                <li class="list-group-item">
+
+                    <strong>Código alpha: </strong> {{pais.alpha3Code| number}}
+
+                </li>
                 
             </ul>
         </div>
 
     </div>
+
+
+    <h3>Traducciones</h3>
+    <div class="row">
+
+        <div class="col">
+
+
+            <span class="badged bg-primary mr-1">{{pais.translations.de}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.es}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.fr}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.it}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.fa}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.pt}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.hr}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.nl}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.ja}}</span>
+            <span class="badged bg-primary mr-1">{{pais.translations.br}}</span>
+
+
+
+        </div>
+        
+    </div>
+
+
+    <pre class="mt-5">
+
+        {{pais | json}}
+
+    </pre>
 
 
 </ng-template>
