@@ -20,4 +20,15 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
+  getPaisCodigo(id: string):Observable<Country>{
+
+
+    //El codigo del pais nos lo devuelve como alpha y solo nos retorna un pais, no un array
+
+    const url= `${this.apiUrl}/alpha/${id}`
+    return this.http.get<Country>(url);
+  }
+
+
+
 }
