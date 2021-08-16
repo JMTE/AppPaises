@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais.interfaces';
+import { PaisService } from '../../servicios/pais.service';
 
 @Component({
   selector: 'app-por-continente',
@@ -15,19 +17,50 @@ button{
 })
 export class PorContinenteComponent{
 
-  regiones:string[]= ['africa', 'america', 'asia', 'europe', 'oceania'];
+  continentes:string[]= ['africa', 'americas', 'asia', 'europe', 'oceania'];
 
-  regionActiva:string="";
+  continenteActivo:string="";
+
+  paises:Country[]=[];
+
+  constructor(private PaisService:PaisService) { }
 
 
-  constructor() { }
+  activarContinente(continente:string){
 
+    if(continente===this.continenteActivo){
+      return;
+    }
 
-  activarRegion(region:string){
+    this.continenteActivo=continente;
 
-    this.regionActiva=region;
+    this.paises=[];
 
     //Hacer el llamado al servicio para traer los paises por esa region
+
+    this.PaisService.buscarPaisesContinente(this.continenteActivo).subscribe( (paises)=>{
+
+
+      this.paises=paises;
+  
+      
+      console.log(paises);},(error)=>{
+  
+        
+  
+        this.paises=[];
+       
+        
+        
+      
+    })
+  
+  }
+
+  getClaseCSS(region:string):string{
+
+    // Hacemos este metodo para que el retorno en la seleccion de clases sea mas simplificado
+    return (region === this.continenteActivo) ?    'btn-primary' : 'btn-outline-primary'
 
 
   }

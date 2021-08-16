@@ -1,4 +1,4 @@
-<h3>Buscar por continente <small>{{regionActiva | titlecase}}</small></h3>
+<h3>Buscar por continente <small>{{continenteActivo | titlecase}}</small></h3>
 
 <hr>
 
@@ -16,14 +16,24 @@
             'btn-primary':regionActiva===region, 
             'btn-outline-primary':regionActiva!==region
         }" -->
-        <button *ngFor="let region of regiones"
-        class="bt btn-outline-primary"
+
+        <!-- Las de arriba serian dos formas de hacer una evaluacion para saber que continente tenemos activado
+        sin embargo, con la seleccion de clases y un comparador ternario, se hace en una simple linea -->
+        <button *ngFor="let continente of continentes"
+        [class]=getClaseCSS(continente)
        
         
-        (click)="activarRegion(region)">
-            {{region}}
+        (click)="activarContinente(continente)">
+            {{continente |titlecase}}
         </button>
 
         
     </div>
+</div>
+<div *ngIf="paises.length>0" class="row">
+    <div class="col">
+
+      <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+
 </div>

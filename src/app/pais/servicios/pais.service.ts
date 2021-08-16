@@ -29,6 +29,16 @@ export class PaisService {
     return this.http.get<Country>(url);
   }
 
+  buscarPaisesContinente(continente:string):Observable<Country[]>{
+
+    //El codigo del pais nos lo devuelve como region y nos retorna un array de paises
+
+    const url= `${this.apiUrl}/region/${continente}`
+    return this.http.get<Country[]>(url);
+
+
+  }
+
 
 
 }
